@@ -1,0 +1,52 @@
+body {
+    background-color: #f8ffe5;
+    font-family: "Nunito";
+    height: 100%;
+    background-image: url(https://78.media.tumblr.com/9716a0673bb479d93a4f07438ff86ac7/tumblr_p50r5nur4v1wz4oalo1_1280.jpg);
+    background-position: 0px 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#whole-thing {
+    margin-top: 80px;
+}
+
+header {
+    padding: 50px 10px 50px 10px;
+}
+
+.pink {
+    color: #ffc43d;
+}
+
+#title {
+    margin-left: -20px;
+    font-family: "Kaushan Script";
+    font-size: 1350%;
+    color: #ffc43d;
+    text-shadow: -9px 0 #ef476f, 0 9px #ef476f, 9px 0 #ef476f, 0 -9px #ef476f, -12px 12px 3px #000000;
+}
+
+#subtitle {
+    font-size: 300%;
+    margin-top: -40px;
+    margin-left: 35px;
+    font-family: "Kaushan Script";
+    color: #ffc43d;
+    text-shadow: -4px 4px 4px #000000;
+}
+
+.space {
+    margin-left: 60px;
+}
+
+.btn-pink {
+    background-color: #ef476f;
+    font-family: "Kaushan Script";
+    color: #f8ffe5;
+    font-size: 200%;
+    text-shadow: -2px 2px #000000;
+    box-shadow: -2px 2px 2px #000000;
+}
+  
