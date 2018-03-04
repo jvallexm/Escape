@@ -1,0 +1,93 @@
+body {
+    background-color: #f8ffe5;
+    font-family: "Nunito";
+  }
+  .hide {
+    display: none;
+  }
+  #error-div {
+    margin-top: -20px;
+  }
+  #error {
+    color: red;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  header {
+    background-image: url(https://78.media.tumblr.com/9716a0673bb479d93a4f07438ff86ac7/tumblr_p50r5nur4v1wz4oalo1_1280.jpg);
+    background-position: 0px 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+  }
+  .pink {
+    color: #ffc43d;
+  }
+  #title {
+    margin-left: -20px;
+    font-family: "Kaushan Script";
+    font-size: 450%;
+    color: #ffc43d;
+    text-shadow: -3px 0 #ef476f, 0 3px #ef476f, 3px 0 #ef476f, 0 -3px #ef476f, -6px 6px 3px #000000;
+  }
+  #subtitle {
+    font-size: 100%;
+    margin-top: -13px;
+    margin-left: -5px;
+    font-family: "Kaushan Script";
+    color: #ffc43d;
+    text-shadow: -2px 2px 2px #000000;
+  }
+  #questions {
+    background-color: #f8ffe5;
+    padding: 10px;
+  }
+  #page-title {
+    color: #ffc43d !important;
+    text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000, -2px 2px 2px #000000;
+    font-family: "Kaushan Script";
+  }
+  .panel-default {
+    border: solid 1px #1b9aaa;
+    min-height: 180px !important;
+  }
+  .panel-heading {
+    background-color: #1b9aaa !important;
+    color: #ffc43d !important;
+    text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000, -2px 2px 2px #000000;
+    font-family: "Kaushan Script";
+  }
+  .panel-title {
+    font-size: 180%;
+  }
+  .question {
+    min-height: 70px;
+  }
+  .middle-text {
+    display: flex;
+    justify-content: center;
+    font-size: 115%;
+    flex-direction: column;
+  }
+  select {
+    margin-top: 10px;
+    border: solid #06d6a0 1px !important;
+  }
+  .btn-green {
+    font-size: 200%;
+    background-color: #1b9aaa !important;
+    color: #ffc43d !important;
+    text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000, -2px 2px 2px #000000;
+    font-family: "Kaushan Script";
+  }
+  .width100 {
+    width: 100%;
+  }
+  .space {
+    margin-left: 24px;
+  }
+  #submit {
+    width: 300px;
+  }
+  
