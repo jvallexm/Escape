@@ -15,6 +15,6 @@ const html = require("./app/routing/htmlRoutes.js")(app);
 const api  = require("./app/routing/apiRoutes.js")(app);
 
 app.get("*",(req,res)=>{
-    res.status(404).send("We ain't got that");
+    res.sendFile(path.join(__dirname + `/app/public/404.html`));
 });
 
