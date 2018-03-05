@@ -21,7 +21,7 @@ header {
 }
 
 #title {
-    margin-left: -20px;
+    margin-left: 20px;
     font-family: "Kaushan Script";
     font-size: 1350%;
     color: #ffc43d;
@@ -31,7 +31,7 @@ header {
 #subtitle {
     font-size: 300%;
     margin-top: -40px;
-    margin-left: -45px;
+    margin-left: -5px;
     font-family: "Kaushan Script";
     color: #ffc43d;
     text-shadow: -4px 4px 4px #000000;

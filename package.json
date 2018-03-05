@@ -1,14 +1,17 @@
 {
-  "name": "friendfinder",
+  "name": "escape",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Escape - the Pina Colada App",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Jennifer Valle",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
-  }
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.4"
+  },
+  "start": "node server"
 }

@@ -1,4 +1,6 @@
-const path     = require("path");
+const path        = require("path");
+const mongodb     = require('mongodb');
+const MongoClient = mongodb.MongoClient;
 
 module.exports = function(app){
     
