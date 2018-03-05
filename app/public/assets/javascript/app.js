@@ -123,7 +123,27 @@ function handleSubmit(){
       throwError("please enter a valid image URL");
        
     } else {
-      throwError("Ready!");
+      
+        let sendObj = {
+            name: name,
+            photo: photo,
+            scores: []
+        }
+        let scores = ["Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"];
+        for(let i=0;i<survey.length;++i){
+            let score = 1 + scores.indexOf($(`#select-${i}`).val());
+            sendObj.scores.push(score);
+        }
+        $.ajax({
+            type: "POST",
+            url: `/api/friends`,
+            data: sendObj,
+            success: function(){
+                console.log("ding")
+            },
+            dataType: `json`
+        });
+
     }
 
 }
@@ -152,5 +172,5 @@ function handleSubmit(){
          if( $(this).val() !== "-")
            $(this).css("background-color","white");
       });
-  
+
   });

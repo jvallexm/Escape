@@ -13,6 +13,16 @@ app.use(bodyParser.json());
 
 /********* API ROUTES ********/
 
+app.get(`/api/friends`,(req,res)=>{
+
+});
+
+app.post(`/api/friends`,(req,res)=>{
+
+    console.log(req.body);
+
+});
+
 /********* HTML ROUTES ********/
 
 // Express static middlewear
