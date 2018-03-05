@@ -39,7 +39,7 @@ function newOption(opt){
 
 function createDropDown(i){
       
-      let options = ["-","Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"];
+      let options = ["-","Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"].reverse();
       let select  = $("<select>").addClass("form-control").attr("id","select-" + i);
 
       options.forEach(i => {
