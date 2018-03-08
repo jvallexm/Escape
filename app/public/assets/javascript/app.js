@@ -1,3 +1,5 @@
+// Survey questions
+
 const survey = [{
     "q": "I read the paper in bed"
 },{
@@ -39,7 +41,7 @@ function newOption(opt){
 
 function createDropDown(i){
       
-      let options = ["-","Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"].reverse();
+      let options = ["-","Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"];
       let select  = $("<select>").addClass("form-control").attr("id","select-" + i);
 
       options.forEach(i => {
@@ -63,11 +65,13 @@ function createPanel(i,q){
       let body     = newDiv("panel-body")
       let bodyText = newDiv("question middle-text").text(survey[i].q);
       let select   = createDropDown(i);
+
       head .append(title);
       panel.append(head);
       body .append(bodyText);
       body .append(select);
       panel.append(body);
+
       return panel;
    
 }
@@ -80,18 +84,26 @@ function throwError(err){
     
 }
 
+// handles the submission of the form
+
 function handleSubmit(){
 
-    let responses = [];
-    let name      = $("#name").val().trim();
-    let photo     = $("#photo").val().trim();
+    let responses = [];                       // Responses to the questions
+    let name      = $("#name").val().trim();  // Name of the user
+    let photo     = $("#photo").val().trim(); // Photo URL
    
+    // For each of the survey questions it gets the value and appends it to result
+
     for(let i=0;i<survey.length;++i){
+
       let val = $(`#select-${i}`).val();
       console.log(val);
       responses.push(val);
+
     }
-   
+
+    // Data validation
+
     if(responses.indexOf("-") !== -1){
       
       for(let i=0;i<survey.length;i++){
@@ -102,7 +114,7 @@ function handleSubmit(){
       
       throwError("You have unsanswered survey questions!");
       
-    } else if(name == "" || name.length < 5) {
+    } else if(name == "" || name.length < 4) {
       
       throwError("Names must be at least 3 characters");
       
@@ -124,23 +136,40 @@ function handleSubmit(){
        
     } else {
       
+        // The object to be sent to the server
+
         let sendObj = {
             name: name,
             photo: photo,
             scores: []
         }
+
+        // A list of the scores with the indecies representing their numerical value
+
         let scores = ["Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"];
+
+        // Parses the values of the survey and convers them to numbers based on the scores
+
         for(let i=0;i<survey.length;++i){
             let score = 1 + scores.indexOf($(`#select-${i}`).val());
             sendObj.scores.push(score);
         }
+
+        // Sends a post request to the api route with the new object
+
         $.ajax({
+
             type: "POST",
             url: `/api/friends`,
             data: sendObj,
             dataType: `json`
+
         }).done((data)=>{
+
+            // Once it has the data...
+
             console.log(data);
+
         });
 
     }
@@ -148,6 +177,10 @@ function handleSubmit(){
 }
   
   $(document).ready(function(){
+
+      // Disables the submit button
+
+      $("#submit").prop("disabled",false);
          
       // Creates questions when the page has loaded 
 
@@ -155,6 +188,10 @@ function handleSubmit(){
         $("#question-" + i).append(createPanel(i))
       }
       
+      // Enables the submit button once the questions have rendered
+
+      $("#submit").prop("disabled",true);
+
       // When the form is submitted... 
 
       $("form").on("submit",function(e){
