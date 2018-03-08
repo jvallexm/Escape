@@ -138,10 +138,9 @@ function handleSubmit(){
             type: "POST",
             url: `/api/friends`,
             data: sendObj,
-            success: function(){
-                console.log("ding")
-            },
             dataType: `json`
+        }).done((data)=>{
+            console.log(data);
         });
 
     }

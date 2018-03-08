@@ -19,6 +19,16 @@ function getAll(callback){
 
 }
 
+function returnDifference(arr1,arr2){
+
+    let sum = 0;
+    for(let i=0;i<arr1.length;++i){
+        sum += Math.abs(arr1[i] - arr2[i]);
+    }
+    return sum;
+
+}
+
 module.exports = function(app){
     
     app.get(`/api/friends`,(req,res)=>{
@@ -32,15 +42,49 @@ module.exports = function(app){
     app.post(`/api/friends`,(req,res)=>{
     
         console.log("***** NEW SUBMISSION *****")
+
+        let newUser = {
+            name:   req.body.name,
+            photo:  req.body.photo,
+            scores: []
+        }
+
+        req.body["scores[]"].forEach(i => newUser.scores.push(parseInt(i)));
         
         getAll((submissions)=>{
+
+            let bestMatch;
+            let currentMatch;
+
+            submissions.forEach((i)=>{
+
+                if(!bestMatch){
+
+                    bestMatch    = i;
+                    currentMatch = returnDifference(newUser.scores,i.scores);
+
+                } else {
+                    
+                   let nextMatch = returnDifference(newUser.scores,i.scores);
+                   
+                   if(nextMatch < currentMatch){
+
+                    bestMatch    = i;
+                    currentMatch = nextMatch;
+
+                   }
+
+                }
+
+            });
+
+            res.send(bestMatch);
 
             MongoClient.connect(url,(err,db)=>{
 
                 if(err) throw err;
                 let personals = db.db("escape").collection("personals");
-                personals.insert(req.body,()=>{
-                    res.send(true)
+                personals.insert(newUser,()=>{
                     db.close();
                 });
 
