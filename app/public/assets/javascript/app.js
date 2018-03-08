@@ -168,19 +168,27 @@ function handleSubmit(){
 
             // Once it has the data...
 
-            console.log(data);
+            makeMatch(sendObj,data);
 
         });
 
     }
 
 }
-  
-  $(document).ready(function(){
+
+function makeMatch(you,match){
+    $(".match").text(match.name);
+    $("#you-img").attr("src",you.photo);
+    $("#you-name").text(you.name);
+    $("#match-img").attr("src",match.photo);
+    $("#gray-out").removeClass("hide");
+}
+
+$(document).ready(function(){
 
       // Disables the submit button
 
-      $("#submit").prop("disabled",false);
+      $("#submit").prop("disabled",true);
          
       // Creates questions when the page has loaded 
 
@@ -190,7 +198,7 @@ function handleSubmit(){
       
       // Enables the submit button once the questions have rendered
 
-      $("#submit").prop("disabled",true);
+      $("#submit").prop("disabled",false);
 
       // When the form is submitted... 
 
