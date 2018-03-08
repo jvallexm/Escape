@@ -217,4 +217,12 @@ $(document).ready(function(){
            $(this).css("background-color","white");
       });
 
+      $("#home").on("click",function(){
+        window.location.replace("/");
+      });
+
+      $("#all").on("click",function(){
+        window.location.replace("/api/friends");
+      });
+
   });
